@@ -12,33 +12,11 @@ import Box from "../components/directory_productRow/box";
 import BlogRow from "../components/directory_blogRow";
 import CenterRow from "../components/directory_centerRow";
 import CategoresRow from "../components/directory_categoresRow";
-export async function getStaticProps() {
-  const response = await fetch(siteData.url + "/categories");
-  const category = await response.json();
-  const response2 = await fetch(siteData.url + "/states");
-  const states = await response2.json();
-  const response3 = await fetch(siteData.url + "/blogs");
-  const blogs = await response3.json();
-  const response4 = await fetch(siteData.url + "/booths");
-  const booths = await response4.json();
-  const response5 = await fetch(siteData.url + "/products");
-  const products = await response5.json();
 
-  return {
-    props: {
-      category,
-      states,
-      blogs,
-      booths,
-      products,
-    },
-  };
-}
-const Index = ({ category, states, blogs, booths, products }) => {
+const Index = () => {
   const page = {
     title: "صفحه اصلی",
   };
-
   const slider = [
     {
       alert: "با شرکت در پخش زنده شرکت ها از آخرین محصولات آنها مطلع گردید",
@@ -690,7 +668,138 @@ const Index = ({ category, states, blogs, booths, products }) => {
       ],
     },
   ];
+  const category = [
+    {
+      id: 1,
+      title: "کالای دیجیتال",
+      icon: `<svg xmlns="http://www.w3.org/2000/svg" id="Outline" viewBox="0 0 24 24" width="512" height="512"><path d="M22,15.184V8a5.006,5.006,0,0,0-5-5H7A5.006,5.006,0,0,0,2,8v7.184A2.993,2.993,0,0,0,3,21H21a2.993,2.993,0,0,0,1-5.816ZM7,5H17a3,3,0,0,1,3,3v7H15.849a2,2,0,0,0-1.528.708L14.074,16H9.925l-.246-.292A2,2,0,0,0,8.151,15H4V8A3,3,0,0,1,7,5ZM21,19H3a1,1,0,0,1,0-2H8.152l.246.292A2,2,0,0,0,9.925,18h4.149a2,2,0,0,0,1.528-.708L15.849,17H21a1,1,0,0,1,0,2Z"></path></svg>`,
+      url: "laptop",
+      img: "/img.jpg",
+      parent: null,
+      slider: 1,
+    },
+    {
+      id: 2,
+      title: "خانه و آشپزخانه",
+      icon: `<svg xmlns="http://www.w3.org/2000/svg" id="Layer_1" data-name="Layer 1" viewBox="0 0 24 24"><path d="m22,9.172v-2.172c0-3.309-2.691-6-6-6h-8c-3.309,0-6,2.691-6,6v2.172c-1.164.413-2,1.524-2,2.828v4c0,1.632.786,3.084,2,3.997,0,0,0,.002,0,.003v2c0,.552.448,1,1,1s1-.448,1-1v-1.101c.323.066.658.101,1,.101h14c.342,0,.677-.035,1-.101v1.101c0,.552.448,1,1,1s1-.448,1-1v-2s0-.002,0-.003c1.214-.913,2-2.365,2-3.997v-4c0-1.304-.836-2.415-2-2.828ZM8,3h8c2.206,0,4,1.794,4,4v2.172c-1.164.413-2,1.524-2,2.828v2H6v-2c0-1.304-.836-2.415-2-2.828v-2.172c0-2.206,1.794-4,4-4Zm14,13c0,1.654-1.346,3-3,3H5c-1.654,0-3-1.346-3-3v-4c0-.551.449-1,1-1s1,.449,1,1v3c0,.552.448,1,1,1h14c.552,0,1-.448,1-1v-3c0-.551.449-1,1-1s1,.449,1,1v4Z"></path></svg>`,
+      url: "couch",
+      img: "/img.jpg",
+      parent: null,
+      slider: 1,
+    },
+    {
+      id: 1,
+      title: "موبایل",
+      icon: `<svg xmlns="http://www.w3.org/2000/svg" id="Layer_1" data-name="Layer 1" viewBox="0 0 24 24" width="512" height="512"><path d="M15,24h-6c-2.757,0-5-2.243-5-5V5C4,2.243,6.243,0,9,0h6c2.757,0,5,2.243,5,5v14c0,2.757-2.243,5-5,5ZM9,2c-1.654,0-3,1.346-3,3v14c0,1.654,1.346,3,3,3h6c1.654,0,3-1.346,3-3V5c0-1.654-1.346-3-3-3h-6Zm5,17h0c0-.552-.448-1-1-1h-2c-.552,0-1,.448-1,1h0c0,.552,.448,1,1,1h2c.552,0,1-.448,1-1Z"></path></svg>`,
+      url: "mobile",
+      img: "/img.jpg",
+      parent: null,
+      slider: 1,
+    },
+    {
+      id: 4,
+      title: "لباس",
+      icon: `<svg xmlns="http://www.w3.org/2000/svg" id="Layer_1" data-name="Layer 1" viewBox="0 0 24 24"><path d="m20.815,1.195c-1.477-.793-3.032-1.195-4.625-1.195H7.81c-1.592,0-3.148.402-4.625,1.195C1.221,2.25,0,4.335,0,6.636v2.388c0,1.654,1.346,3,3,3h1v6.976c0,2.757,2.243,5,5,5h6c2.757,0,5-2.243,5-5v-7h1c1.654,0,3-1.346,3-3v-2.364c0-2.301-1.221-4.386-3.185-5.44Zm-5.921.805c-.455,1.194-1.587,2-2.893,2s-2.438-.806-2.893-2h5.787Zm7.107,7c0,.551-.449,1-1,1h-1v-3c0-.552-.448-1-1-1s-1,.448-1,1v12c0,1.654-1.346,3-3,3h-6c-1.654,0-3-1.346-3-3V7c0-.552-.448-1-1-1s-1,.448-1,1v3.024h-1c-.551,0-1-.449-1-1v-2.388c0-1.563.817-2.973,2.131-3.679.937-.503,1.908-.801,2.897-.907.544,2.326,2.588,3.95,4.972,3.95s4.428-1.624,4.972-3.95c.988.106,1.96.404,2.897.907,1.314.706,2.131,2.116,2.131,3.679v2.364Z"></path></svg>`,
+      url: "tshirt",
+      img: "/img.jpg",
+      parent: null,
+      slider: 1,
+    },
+    {
+      id: 5,
+      title: "tshirt",
+      icon: `<svg xmlns="http://www.w3.org/2000/svg" id="Layer_1" data-name="Layer 1" viewBox="0 0 24 24"><path d="m20.815,1.195c-1.477-.793-3.032-1.195-4.625-1.195H7.81c-1.592,0-3.148.402-4.625,1.195C1.221,2.25,0,4.335,0,6.636v2.388c0,1.654,1.346,3,3,3h1v6.976c0,2.757,2.243,5,5,5h6c2.757,0,5-2.243,5-5v-7h1c1.654,0,3-1.346,3-3v-2.364c0-2.301-1.221-4.386-3.185-5.44Zm-5.921.805c-.455,1.194-1.587,2-2.893,2s-2.438-.806-2.893-2h5.787Zm7.107,7c0,.551-.449,1-1,1h-1v-3c0-.552-.448-1-1-1s-1,.448-1,1v12c0,1.654-1.346,3-3,3h-6c-1.654,0-3-1.346-3-3V7c0-.552-.448-1-1-1s-1,.448-1,1v3.024h-1c-.551,0-1-.449-1-1v-2.388c0-1.563.817-2.973,2.131-3.679.937-.503,1.908-.801,2.897-.907.544,2.326,2.588,3.95,4.972,3.95s4.428-1.624,4.972-3.95c.988.106,1.96.404,2.897.907,1.314.706,2.131,2.116,2.131,3.679v2.364Z"></path></svg>`,
+      url: "tshirt",
+      img: "/img.jpg",
+      parent: null,
+    },
+    {
+      id: 6,
+      title: "tshirt",
+      icon: `<svg xmlns="http://www.w3.org/2000/svg" id="Layer_1" data-name="Layer 1" viewBox="0 0 24 24"><path d="m20.815,1.195c-1.477-.793-3.032-1.195-4.625-1.195H7.81c-1.592,0-3.148.402-4.625,1.195C1.221,2.25,0,4.335,0,6.636v2.388c0,1.654,1.346,3,3,3h1v6.976c0,2.757,2.243,5,5,5h6c2.757,0,5-2.243,5-5v-7h1c1.654,0,3-1.346,3-3v-2.364c0-2.301-1.221-4.386-3.185-5.44Zm-5.921.805c-.455,1.194-1.587,2-2.893,2s-2.438-.806-2.893-2h5.787Zm7.107,7c0,.551-.449,1-1,1h-1v-3c0-.552-.448-1-1-1s-1,.448-1,1v12c0,1.654-1.346,3-3,3h-6c-1.654,0-3-1.346-3-3V7c0-.552-.448-1-1-1s-1,.448-1,1v3.024h-1c-.551,0-1-.449-1-1v-2.388c0-1.563.817-2.973,2.131-3.679.937-.503,1.908-.801,2.897-.907.544,2.326,2.588,3.95,4.972,3.95s4.428-1.624,4.972-3.95c.988.106,1.96.404,2.897.907,1.314.706,2.131,2.116,2.131,3.679v2.364Z"></path></svg>`,
+      url: "tshirt",
+      img: "/img.jpg",
+      parent: null,
+    },
+    {
+      id: 7,
+      title: "tshirt",
+      icon: `<svg xmlns="http://www.w3.org/2000/svg" id="Layer_1" data-name="Layer 1" viewBox="0 0 24 24"><path d="m20.815,1.195c-1.477-.793-3.032-1.195-4.625-1.195H7.81c-1.592,0-3.148.402-4.625,1.195C1.221,2.25,0,4.335,0,6.636v2.388c0,1.654,1.346,3,3,3h1v6.976c0,2.757,2.243,5,5,5h6c2.757,0,5-2.243,5-5v-7h1c1.654,0,3-1.346,3-3v-2.364c0-2.301-1.221-4.386-3.185-5.44Zm-5.921.805c-.455,1.194-1.587,2-2.893,2s-2.438-.806-2.893-2h5.787Zm7.107,7c0,.551-.449,1-1,1h-1v-3c0-.552-.448-1-1-1s-1,.448-1,1v12c0,1.654-1.346,3-3,3h-6c-1.654,0-3-1.346-3-3V7c0-.552-.448-1-1-1s-1,.448-1,1v3.024h-1c-.551,0-1-.449-1-1v-2.388c0-1.563.817-2.973,2.131-3.679.937-.503,1.908-.801,2.897-.907.544,2.326,2.588,3.95,4.972,3.95s4.428-1.624,4.972-3.95c.988.106,1.96.404,2.897.907,1.314.706,2.131,2.116,2.131,3.679v2.364Z"></path></svg>`,
+      url: "tshirt",
+      img: "/img.jpg",
+      parent: null,
+    },
 
+    {
+      id: 8,
+      title: "لپ تاپ",
+      icon: `<svg xmlns="http://www.w3.org/2000/svg" id="Outline" viewBox="0 0 24 24" width="512" height="512"><path d="M22,15.184V8a5.006,5.006,0,0,0-5-5H7A5.006,5.006,0,0,0,2,8v7.184A2.993,2.993,0,0,0,3,21H21a2.993,2.993,0,0,0,1-5.816ZM7,5H17a3,3,0,0,1,3,3v7H15.849a2,2,0,0,0-1.528.708L14.074,16H9.925l-.246-.292A2,2,0,0,0,8.151,15H4V8A3,3,0,0,1,7,5ZM21,19H3a1,1,0,0,1,0-2H8.152l.246.292A2,2,0,0,0,9.925,18h4.149a2,2,0,0,0,1.528-.708L15.849,17H21a1,1,0,0,1,0,2Z"></path></svg>`,
+      url: "laptop",
+      img: "/img.jpg",
+      parent: 1,
+    },
+    {
+      id: 9,
+      title: "laptop",
+      icon: `<svg xmlns="http://www.w3.org/2000/svg" id="Outline" viewBox="0 0 24 24" width="512" height="512"><path d="M22,15.184V8a5.006,5.006,0,0,0-5-5H7A5.006,5.006,0,0,0,2,8v7.184A2.993,2.993,0,0,0,3,21H21a2.993,2.993,0,0,0,1-5.816ZM7,5H17a3,3,0,0,1,3,3v7H15.849a2,2,0,0,0-1.528.708L14.074,16H9.925l-.246-.292A2,2,0,0,0,8.151,15H4V8A3,3,0,0,1,7,5ZM21,19H3a1,1,0,0,1,0-2H8.152l.246.292A2,2,0,0,0,9.925,18h4.149a2,2,0,0,0,1.528-.708L15.849,17H21a1,1,0,0,1,0,2Z"></path></svg>`,
+      url: "laptop",
+      img: "/img.jpg",
+      parent: 1,
+    },
+    {
+      id: 10,
+      title: "laptop",
+      icon: `<svg xmlns="http://www.w3.org/2000/svg" id="Outline" viewBox="0 0 24 24" width="512" height="512"><path d="M22,15.184V8a5.006,5.006,0,0,0-5-5H7A5.006,5.006,0,0,0,2,8v7.184A2.993,2.993,0,0,0,3,21H21a2.993,2.993,0,0,0,1-5.816ZM7,5H17a3,3,0,0,1,3,3v7H15.849a2,2,0,0,0-1.528.708L14.074,16H9.925l-.246-.292A2,2,0,0,0,8.151,15H4V8A3,3,0,0,1,7,5ZM21,19H3a1,1,0,0,1,0-2H8.152l.246.292A2,2,0,0,0,9.925,18h4.149a2,2,0,0,0,1.528-.708L15.849,17H21a1,1,0,0,1,0,2Z"></path></svg>`,
+      url: "laptop",
+      img: "/img.jpg",
+      parent: 1,
+    },
+    {
+      id: 11,
+      title: "laptop",
+      icon: `<svg xmlns="http://www.w3.org/2000/svg" id="Outline" viewBox="0 0 24 24" width="512" height="512"><path d="M22,15.184V8a5.006,5.006,0,0,0-5-5H7A5.006,5.006,0,0,0,2,8v7.184A2.993,2.993,0,0,0,3,21H21a2.993,2.993,0,0,0,1-5.816ZM7,5H17a3,3,0,0,1,3,3v7H15.849a2,2,0,0,0-1.528.708L14.074,16H9.925l-.246-.292A2,2,0,0,0,8.151,15H4V8A3,3,0,0,1,7,5ZM21,19H3a1,1,0,0,1,0-2H8.152l.246.292A2,2,0,0,0,9.925,18h4.149a2,2,0,0,0,1.528-.708L15.849,17H21a1,1,0,0,1,0,2Z"></path></svg>`,
+      url: "laptop",
+      img: "/img.jpg",
+      parent: 1,
+    },
+  ];
+  const center = [
+    {
+      img: "./file/1397011222134298713770774.jpg",
+      title: "آذربایجان غربی",
+      company: "26",
+      poroduct: "107",
+      flag: null,
+    },
+    {
+      img: "./file/azarbayejan.jfif",
+      title: "آذربایجان شرقی",
+      company: "56",
+      poroduct: "89",
+      flag: "./file/Flag_of_the_United_Arab_Emirates.svg.png",
+    },
+    {
+      img: "./file/Mashhad-guide-jpg.webp",
+      title: "مشهد",
+      company: "206",
+      poroduct: "450",
+      flag: "./file/download (1).png",
+    },
+    {
+      img: "./file/shiraz.jfif",
+      title: "شیراز",
+      company: "51",
+      poroduct: "227",
+      flag: "./file/Flag_of_the_United_Arab_Emirates.svg.png",
+    },
+    {
+      img: "./file/tehran.png",
+      title: "تهران",
+      company: "126",
+      poroduct: "1107",
+      flag: null,
+    },
+  ];
   const blog = [
     {
       img: "/file/the-positive-link.jpg",
@@ -741,19 +850,11 @@ const Index = ({ category, states, blogs, booths, products }) => {
       <div className="main">
         <Menu content={siteData.menu} fixed={"fixed"} />
         <Slider content={slider} category={siteData.category} />
+        <CategoresRow content={siteData.category} title={"دسته بندی"} />
 
-        <CategoresRow
-          content={category.filter((i) => i.language_id == "3")}
-          title={"دسته بندی"}
-        />
-
-        <CenterRow
-          content={states.filter((i) => i.image != "" && i.language_id == "3")}
-          title={"استان ها"}
-        />
-
+        <CenterRow content={center} title={"استان ها"} />
         <ActivistsRow
-          content={booths.filter((i) => i.language == "فارسی")}
+          content={activist}
           title={"غرفه ها"}
           dsc={"لیست فروشگاه ها و ارائه دهندگان خدمات"}
           bg={"./file/bgrow.jpg"}
@@ -792,21 +893,16 @@ const Index = ({ category, states, blogs, booths, products }) => {
             </div>
           </div>
           <div className="row g-4">
-            {products &&
-              products
-                .filter((i) => i.language == "فارسی")
-                .map((item, i) => (
-                  <div key={i} className="col-lg-3 col-md-4 col-6">
-                    <Box dir={siteData.dir} content={item} i={i} />
-                  </div>
-                ))}
+            {product &&
+              product.map((item, i) => (
+                <div key={i} className="col-lg-3 col-md-4 col-6">
+                  <Box dir={siteData.dir} content={item} i={i} />
+                </div>
+              ))}
           </div>
         </div>
         <Banner content={banner} siteData={siteData} />
-        <BlogRow
-          content={blogs.filter((i) => i.language == "فارسی")}
-          title={"وبلاگ"}
-        />
+        <BlogRow content={blog} title={"وبلاگ"} />
         {/* {category ? (
           <div
             className="container"
