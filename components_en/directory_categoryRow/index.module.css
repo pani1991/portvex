@@ -1,0 +1,27 @@
+.categoryrow {
+  padding-block: 80px;
+}
+.categoryrow .box {
+  background: var(--bs-body-bg);
+  border-radius: var(--bs-border-radius);
+  color: var(--bs-heading-color);
+  transition: all.4s ease;
+}
+.categoryrow .boxheader {
+  justify-content: space-between;
+  color: var(--bs-heading-color);
+  font-size: 0.8rem !important;
+  align-items: center;
+}
+.categoryrow .box:hover {
+  transform: scale(1.07);
+}
+.categoryrow .boxheader svg {
+  width: 20px !important;
+  height: 20px !important;
+  fill: var(--bs-heading-color);
+  margin-inline-end: 10px;
+}
+.categoryrow .child {
+  color: var(--bs-heading-color);
+}
