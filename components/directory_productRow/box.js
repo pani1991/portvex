@@ -15,35 +15,39 @@ const ProductBox = ({ content }) => {
         //     ? "/" + siteData.urls.product + "/" + content.id
         //     : ""
         // }
-        href="/product"
+        href={"/product/" + content.id}
       >
         <div
           className="img position-relative"
           style={{
-            background: `url(${content && content.img ? content.img : ""})`,
+            background: `url(${
+              content.thumbnail_image ? content.thumbnail_image : ""
+            })`,
           }}
         >
           <div className="status mt-2 d-flex" style={{ minHeight: "25px" }}>
             <p className="p-0 m-0 category">
               {content.category ? (
                 <span className="d-flex">
-                  <span
+                  {/* <span
                     className="icon d-inline"
                     dangerouslySetInnerHTML={{
                       __html: content.category.icon
                         ? content.category.icon
                         : "",
                     }}
-                  ></span>
-                  {content.category.title ? content.category.title : ""}
+                  ></span> */}
+                  {content.category}
                 </span>
               ) : (
                 ""
               )}
             </p>
-            {content && content.price && content.lastPrice ? (
+            {content && content.before_discount && content.after_discount ? (
               <div className="off">
-                {Math.ceil((1 - content.lastPrice / content.price) * 100) + "%"}
+                {Math.ceil(
+                  (1 - content.after_discount / content.before_discount) * 100
+                ) + "%"}
               </div>
             ) : (
               ""
@@ -51,21 +55,23 @@ const ProductBox = ({ content }) => {
           </div>
         </div>
         <div className="text p-3 ">
-          {content.brand ? (
+          {content.booth[0] ? (
             <div
               className="d-flex mb-2"
               style={{ fontSize: "10px", alignItems: "center" }}
             >
               <div
                 className="shop"
-                title={content.brand.name ? content.brand.name : ""}
+                title={content.booth[0].title ? content.booth[0].title : ""}
                 style={{
                   backgroundImage: `url(${
-                    content.brand.logo ? "/" + content.brand.logo : ""
+                    content.booth[0].logo ? content.booth[0].logo : ""
                   })`,
                 }}
               ></div>
-              <small>{content.brand.name ? content.brand.name : ""}</small>
+              <small>
+                {content.booth[0].title ? content.booth[0].title : ""}
+              </small>
             </div>
           ) : (
             ""
@@ -76,34 +82,35 @@ const ProductBox = ({ content }) => {
           ) : (
             ""
           )}
-          {content && content.price && content.lastPrice == null ? (
+          {content && content.before_discount && content.after_discount == null ? (
             <strong className="d-block price ">
-              {content.price
-                ? content.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+              {content.before_discount
+                ? content.before_discount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
                 : ""}{" "}
               تومان
             </strong>
           ) : (
             <strong className="d-block price">
               {"  "}{" "}
-              {content.lastPrice
-                ? content.lastPrice
+              {content.after_discount
+                ? content.after_discount
                     .toString()
                     .replace(/\B(?=(\d{3})+(?!\d))/g, ",")
                 : ""}{" "}
               تومان
               <span className="price2 mx-1">
-                {content.price
-                  ? content.price
+                {content.before_discount
+                  ? content.before_discount
                       .toString()
                       .replace(/\B(?=(\d{3})+(?!\d))/g, ",")
                   : ""}
               </span>{" "}
             </strong>
           )}
-          {content.min ? (
+          {content.hadagale_sefaresh ? (
             <div className="d-flex mt-1" style={{ fontSize: "10px" }}>
-              حداقل سفارش :<small className="mx-1">{content.min} عدد</small>
+              حداقل سفارش :
+              <small className="mx-1">{content.hadagale_sefaresh} عدد</small>
             </div>
           ) : (
             ""

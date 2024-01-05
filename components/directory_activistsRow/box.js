@@ -13,12 +13,14 @@ const ActivistsBox = ({ content }) => {
         // href={
         //   content && content.id ? siteData.urls.active + "/" + content.id : ""
         // }
-        href="/company"
+        href={"/company/" + content.id}
       >
         <div
           className="img position-relative"
           style={{
-            background: `url(${content && content.img ? content.img : ""})`,
+            background: `url(${
+              content && content.thumbnail_image ? content.thumbnail_image : ""
+            })`,
           }}
         >
           <div className="shopbox p-3 pb-2">
@@ -33,13 +35,17 @@ const ActivistsBox = ({ content }) => {
               ""
             )}
             <div className="shopstatus">
-              {content.status && content.status == 1 ? "آنلاین" : "آفلاین"}
+              {content.online && content.online == "آنلاین"
+                ? "آنلاین"
+                : "آفلاین"}
 
               <span
                 className="circle"
                 style={{
                   background:
-                    content.status && content.status == 1 ? "green" : "red",
+                    content.online && content.online == "آنلاین"
+                      ? "green"
+                      : "red",
                 }}
               ></span>
             </div>
@@ -55,15 +61,15 @@ const ActivistsBox = ({ content }) => {
             <p className="p-0 m-0 category">
               {content.category ? (
                 <span className="d-flex" style={{ alignItems: "center" }}>
-                  <span
+                  {/* <span
                     className="icon d-inline"
                     dangerouslySetInnerHTML={{
                       __html: content.category.icon
                         ? content.category.icon
                         : "",
                     }}
-                  ></span>
-                  {content.category.title ? content.category.title : ""}
+                  ></span> */}
+                  {content.category ? content.category : ""}
                 </span>
               ) : (
                 ""
@@ -74,28 +80,28 @@ const ActivistsBox = ({ content }) => {
                 className="p-0 m-0 category"
                 style={{ color: "var(--color1)" }}
               >
-                {content.phone}
+                {content.mobile}
               </p>
             ) : (
               ""
             )}{" "}
           </div>
-          {content.product ? (
+          {content.products ? (
             <div className="row g-3 mt-0">
-              {content.product.map((item, i) => (
+              {content.products.map((item, i) => (
                 <div
-                  className="col"
+                  className="col-4"
                   key={i}
                   title={item && item.title ? item.title : ""}
                 >
-                 
-                    <div
-                      className="product"
-                      style={{
-                        background: `url(${item && item.img ? item.img : ""})`,
-                      }}
-                    ></div>
-                
+                  <div
+                    className="product"
+                    style={{
+                      background: `url(${
+                        item && item.image ? item.image : ""
+                      })`,
+                    }}
+                  ></div>
                 </div>
               ))}
             </div>

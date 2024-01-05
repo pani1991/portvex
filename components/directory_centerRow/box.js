@@ -9,14 +9,17 @@ const CenterBox = ({ content }) => {
       title={content && content.title ? content.title : ""}
       style={{
         background: `linear-gradient(180deg, rgba(34,193,195,0) 0%, rgba(0,0,0,1) 100%), url(${
-          content && content.img ? content.img : ""
+          content && content.image ? content.image : ""
         })`,
       }}
     >
       <Link
         className="h-100 w-100"
         href={
-          content && content.id ?"/"+ siteData.urls.centers + "/" + content.id : ""
+          content && content.id
+            ? "/" + siteData.urls.centers 
+            // + "/" + content.id
+            : ""
         }
         style={{
           display: "flex",
@@ -32,20 +35,21 @@ const CenterBox = ({ content }) => {
           height={20}
           style={{ objectFit: "cover", borderRadius: "50%" }}
         /> */}
-  
-          {content && content.title ? (
-            <h4 className="text-white h5 mt-2">{content.title}</h4>
-          ) : (
-            ""
-          )}
-          <p
-            className="d-flex pb-0 mb-0 col-12 text-white mt-2"
-            style={{ justifyContent: "space-between" }}
-          >
-            <small>غرفه : {content.company ? content.company : ""}</small>
-            <small>محصولات : {content.poroduct ? content.poroduct : ""}</small>
-          </p>
-       
+
+        {content && content.title ? (
+          <h4 className="text-white h5 mt-2">{content.title}</h4>
+        ) : (
+          ""
+        )}
+        <p
+          className="d-flex pb-0 mb-0 col-12 text-white mt-2"
+          style={{ justifyContent: "space-between" }}
+        >
+          <small>غرفه : {content.count_gorfe ? content.count_gorfe : ""}</small>
+          <small>
+            محصولات : {content.count_product ? content.count_product : ""}
+          </small>
+        </p>
       </Link>
       <style jsx>{`
         .centerbox {

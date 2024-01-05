@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react";
 import siteData from "../../pages/api/api";
 import styles from "./index.module.css";
 import SearchBox from "./searchBox";
+import { useRouter } from "next/router";
 import Alert from "./alert";
 const Header = ({ content, fixed }) => {
   const [open2, setOpen2] = useState(null);
@@ -84,6 +85,14 @@ const Header = ({ content, fixed }) => {
     });
   }, []);
 
+  const router = useRouter();
+
+  const handleChange = (event) => {
+    const selectedLang = event.target.value;
+
+    // تغییر مسیر به صفحه مربوط به زبان انتخاب شده
+    router.push(`/${selectedLang}`);
+  };
   return (
     <div
       className={
@@ -104,10 +113,10 @@ const Header = ({ content, fixed }) => {
           <div className="col-12 d-flex">
             <Link
               href="/"
-              className={styles.shine+ " d-flex"}
+              className={styles.shine + " d-flex"}
               style={{ alignItems: "center" }}
             >
-              {/* <Image
+              <Image
                 alt=""
                 src={content && content.logo ? content.logo : ""}
                 width={0}
@@ -120,22 +129,20 @@ const Header = ({ content, fixed }) => {
                   height: "45px",
                   paddingInlineEnd: "10px",
                 }}
-              /> */}
-              <h3 className="mb-0">Portvex</h3>
+              />
             </Link>
-            <div
-              className="d-flex width"
-            >
+            <div className="d-flex width">
               <div
-                className={styles.menurow + " py-2 d-flex position-relative width"}
-            
+                className={
+                  styles.menurow + " py-2 d-flex position-relative width"
+                }
               >
-                  {fixed != "fixed"||(fixed == "fixed"&&scroll != false)  ? (
+                {fixed != "fixed" || (fixed == "fixed" && scroll != false) ? (
                   <div
                     className="d-none d-md-inline-block mx-auto"
                     style={{ width: "calc(100% - 400px)" }}
                   >
-                    <SearchBox />
+                    <SearchBox dir={siteData.dir} />
                   </div>
                 ) : (
                   ""
@@ -236,7 +243,7 @@ const Header = ({ content, fixed }) => {
                     </Link>
                   </li>
                   <li>
-                    <Link legacyBehavior href="/login">
+                    <Link legacyBehavior href={siteData.urls.login}>
                       <a className={styles.button + ""}>
                         <span className={styles.btntext + " mx-1"}>
                           ورود | ثبت‌ نام
@@ -264,13 +271,9 @@ const Header = ({ content, fixed }) => {
 
         {scroll == false ? (
           <div className={styles.top + " py-1"}>
-            <div
-              className="d-flex width"
-      
-            >
+            <div className="d-flex width">
               <div
                 className={styles.menurow + " d-flex position-relative width"}
-        
               >
                 <ul
                   className={
@@ -314,6 +317,37 @@ const Header = ({ content, fixed }) => {
                   className={styles.tools + " d-flex m-0 p-0"}
                   style={{ alignItems: "center" }}
                 >
+                  <li style={{ fontSize: "0.7rem" }}>
+                    زبان :
+                    <select
+                      style={{
+                        fontSize: "0.7rem",
+                        border: "0px solid transparent",
+                        background: "transparent",
+                        color: "var(--color1)",
+                      }}
+                      onChange={handleChange}
+                    >
+                      <option
+                        value="/"
+                        style={{ background: "transparent", color: "#000" }}
+                      >
+                        فارسی
+                      </option>
+                      <option
+                        value="en"
+                        style={{ background: "transparent", color: "#000" }}
+                      >
+                        English
+                      </option>
+                      <option
+                        value="ar"
+                        style={{ background: "transparent", color: "#000" }}
+                      >
+                        عربی
+                      </option>
+                    </select>
+                  </li>
                   <li>
                     <a className={styles.button + ""}>
                       <span className={styles.btntext + " mx-1"}>
@@ -340,10 +374,10 @@ const Header = ({ content, fixed }) => {
         )}
       </div>
       <style jsx>{`
-          .width{
-            width: -webkit-fill-available;
-            width: -moz-available;
-          }
+        .width {
+          width: -webkit-fill-available;
+          width: -moz-available;
+        }
         .menufixed {
           --bs-dark-text-emphasis: #fff;
           background: transparent;
@@ -358,7 +392,8 @@ const Header = ({ content, fixed }) => {
           --bs-dark-text-emphasis: #53616e;
           box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
           border-bottom: 1px solid rgba(255, 255, 255, 0.3);
-          background: var(--bs-body-bg) !important;    position: fixed !important;
+          background: var(--bs-body-bg) !important;
+          position: fixed !important;
           top: 0px;
           left: 0px;
         }

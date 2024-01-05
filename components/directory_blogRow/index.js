@@ -6,7 +6,7 @@ import Box from "./box";
 import styles from "./index.module.css";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import Slider from "react-slick";
+import Slider from "react-slick";import { useRouter } from "next/router";
 
 const BlogRow = ({ content, title, dsc }) => {
   var settings = {
@@ -52,7 +52,7 @@ const BlogRow = ({ content, title, dsc }) => {
         (content.class_name
           ? styles.blogrow + " " + content.class_name
           : styles.blogrow) +
-        " " +
+        " blogrow" +
         (siteData.dir ? siteData.dir : "")
       }
     >

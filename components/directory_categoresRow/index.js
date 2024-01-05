@@ -115,6 +115,7 @@ const CategoresRow = ({ content, title }) => {
     nextArrow: <SampleNextArrow />,
     prevArrow: <SamplePrevArrow />,
   };
+
   return (
     <div
       className={
@@ -139,7 +140,7 @@ const CategoresRow = ({ content, title }) => {
           <Slider {...settings}>
             {content &&
               content
-                .filter((i) => i.home != null)
+                // .filter((i) => i.home != null)
                 .map((item, i) => (
                   <div key={i}>
                     <div className="my-2" style={{ paddingInline: ".75rem" }}>

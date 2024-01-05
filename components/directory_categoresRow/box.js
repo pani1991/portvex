@@ -13,7 +13,7 @@ const HellpBox = ({ content }) => {
         <div
           className="img position-relative"
           style={{
-            background: `url(${content && content.img ? content.img : ""})`,
+            background: `url(${content && content.image ? content.image : ""})`,
           }}
         ></div>
         <div className="text p-2">

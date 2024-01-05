@@ -59,7 +59,7 @@ const Footer = ({ content }) => {
                 style={{ alignItems: "flex-end" }}
               >
                 <div className="fild">
-                  <label>ایمیل</label>
+                  <label>email</label>
                   <input type="text" />
                 </div>
                 <button className="btn">Membership</button>

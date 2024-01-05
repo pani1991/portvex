@@ -14,50 +14,52 @@ const BlogBox = ({ content }) => {
         // href={
         //   content && content.id ? "/"+siteData.urls.blog + "/" + content.id : ""
         // }
-        href="/blogonpage" 
+        href={"blog/"+content.id}
       >
         <div
           className="img position-relative m-3 "
           style={{
-            background: `url(${content && content.img ? content.img : ""})`,
+            background: `url(${
+              content && content.thumbnail_image ? content.thumbnail_image : ""
+            })`,
           }}
         >
           {content && content.date ? (
             <div className="date">
               <span className="d-block">
-                {toJalaali(new Date(content.date)).jd}
+              {content.date?content.date.slice(8,10):""}
               </span>
               <small className="d-block">
-                {toJalaali(new Date(content.date)).jm
-                  ? toJalaali(new Date(content.date)).jm == 1
+                {content.date
+                  ? content.date.slice(5,7) == 1
                     ? "فروردین"
-                    : "" || toJalaali(new Date(content.date)).jm == 2
+                    : "" ||  content.date.slice(5,7)== 2
                     ? "اردیبهشت"
-                    : "" || toJalaali(new Date(content.date)).jm == 3
+                    : "" || content.date.slice(5,7) == 3
                     ? "خرداد"
-                    : "" || toJalaali(new Date(content.date)).jm == 4
+                    : "" || content.date.slice(5,7) == 4
                     ? "تیر"
-                    : "" || toJalaali(new Date(content.date)).jm == 5
+                    : "" || content.date.slice(5,7) == 5
                     ? "مرداد"
-                    : "" || toJalaali(new Date(content.date)).jm == 6
+                    : "" || content.date.slice(5,7) == 6
                     ? "شهریور"
-                    : "" || toJalaali(new Date(content.date)).jm == 7
+                    : "" || content.date.slice(5,7) == 7
                     ? "مهر"
-                    : "" || toJalaali(new Date(content.date)).jm == 8
+                    : "" || content.date.slice(5,7) == 8
                     ? "آبان"
-                    : "" || toJalaali(new Date(content.date)).jm == 9
+                    : "" || content.date.slice(5,7) == 9
                     ? "آذر"
-                    : "" || toJalaali(new Date(content.date)).jm == 10
+                    : "" || content.date.slice(5,7) == 10
                     ? "دی"
-                    : "" || toJalaali(new Date(content.date)).jm == 11
+                    : "" || content.date.slice(5,7) == 11
                     ? "بهمن"
-                    : "" || toJalaali(new Date(content.date)).jm == 12
+                    : "" || content.date.slice(5,7) == 12
                     ? "اسفند"
                     : ""
                   : ""}
               </small>
               <small className="d-block">
-                {toJalaali(new Date(content.date)).jy}
+                {content.date?content.date.slice(0,4):""}
               </small>
             </div>
           ) : (
@@ -70,12 +72,12 @@ const BlogBox = ({ content }) => {
           ) : (
             ""
           )}
-          {content && content.dsc ? (
+          {content && content.description ? (
             <div
               className="dsc mt-1"
               style={{ textAlign: "justify", minHeight: "59px" }}
               dangerouslySetInnerHTML={{
-                __html: content.dsc,
+                __html: content.description,
               }}
             />
           ) : (
@@ -84,6 +86,21 @@ const BlogBox = ({ content }) => {
         </div>
       </Link>
       <style jsx>{`
+        // @media (min-width: 1100px) {
+        //   .blogbox {
+        //     max-width: 33.3%;
+        //   }
+        // }
+        // @media (max-width: 1100px && min-width:990px) {
+        //   .blogbox {
+        //     max-width: 50%;
+        //   }
+        // }
+        // @media (max-width: 990px && min-width:767px) {
+        //   .blogbox {
+        //   }
+        // }
+
         .date span {
           font-size: 1.3rem;
           font-weight: 700;
