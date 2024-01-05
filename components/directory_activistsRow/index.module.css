@@ -1,0 +1,18 @@
+.activistsrow {
+  padding-block: 80px;
+  color: #fff;
+  background-size: cover !important;
+  background-position: center !important;
+  backdrop-filter: blur(10px);
+}
+.activistsrow h2 {
+  color: #fff;
+}
+.more {
+  color: var(--bs-dark-text-emphasis) !important;
+  color: #fff !important;
+  fill: #fff !important;
+}
+.ltr .more svg {
+  transform: rotate(180deg);
+}

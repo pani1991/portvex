@@ -1,0 +1,85 @@
+/* .btn {
+  border-radius: var(--bs-border-radius);
+  border-color: var(--bs-light-text-emphasis);
+}
+.btn svg {
+  margin-inline-end: 5px;
+}
+.btn:hover {
+  border-color: var(--color1) !important;
+  color: var(--color1) !important;
+  fill: var(--color1) !important;
+  background: transparent !important;
+}
+.btn:hover svg {
+  fill: var(--color1) !important;
+}
+:focus-visible {
+  outline: -webkit-focus-ring-color auto 0px;
+  border-color: var(--color1) !important;
+}
+input[type="checkbox"] {
+  border-radius: var(--bs-border-radius) / 2 !important;
+  border: 1px solid var(--bs-body-color) !important;
+}
+.contact .social svg path {
+  fill: var(--bs-dark-text-emphasis) !important;
+}
+.ltr .more svg {
+  transform: rotate(180deg) !important;
+} */
+
+/* 
+-------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------- Calendar  -------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------------
+*/
+.rmdp-wrapper {
+  background-color: transparent !important;
+  border-radius: none !important;
+  direction: rtl !important;
+  text-align: center !important;
+  width: 100% !important;
+  box-shadow: none !important;
+}
+.rmdp-top-class {
+  width: 100% !important;
+  min-width: 100% !important;
+  display: block !important;
+}
+.rmdp-calendar {
+  padding: 0px !important;
+}
+.rmdp-day-picker {
+  display: block !important;
+}
+.rmdp-day.rmdp-today span {
+  background-color: var(--color1) !important;
+}
+@media (max-height: 450px), (max-width: 450px) {
+  .rmdp-day span {
+    font-size: 14px !important;
+    padding-left: 0.5px;
+  }
+}
+.rmdp-day span {
+  border-radius: 5px !important;
+  bottom: 0px !important;
+  left: 0px !important;
+  position: absolute;
+  right: 0px !important;
+  top: 0 !important;
+}
+.rmdp-day:not(.rmdp-disabled):not(.rmdp-day-hidden) span:hover {
+  background-color: #dce4e7 !important;
+  color: var(--color1) !important;
+}
+.rmdp-week .rmdp-week-day {
+  font-size: 9px !important;
+  height: 28px;
+  width: fit-content !important;
+  color: #6d6d6d;
+}
+/* .rmdp-day:nth-child(7) {
+  color: red !important;
+} */

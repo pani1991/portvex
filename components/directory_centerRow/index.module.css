@@ -1,0 +1,11 @@
+.centerrow {
+  padding-block: 80px;
+}
+.more {
+  color: var(--bs-dark-text-emphasis) !important;
+}
+.ltr .more svg {
+  transform: rotate(180deg);
+
+}
+

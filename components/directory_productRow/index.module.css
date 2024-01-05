@@ -1,0 +1,9 @@
+.productrow {
+  padding-block: 50px;
+}
+.more {
+  color: var(--bs-dark-text-emphasis) !important;
+}
+.ltr .more svg {
+  transform: rotate(180deg);
+}

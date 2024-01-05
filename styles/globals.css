@@ -1,0 +1,137 @@
+@import "./--font.css";
+@import "./--custom.css";
+@import "./--customClass.css";
+
+:root,
+[data-bs-theme="light"] {
+  --color1: #f60;
+  --color2: #1dd5d7;
+  --color3: #7cc5fc;
+  --color4: #e5f6fe;
+  --color5: #e6e7eb;
+  --color6: #d64545;
+
+  --bs-tertiary-bg: #f6f7fb;
+  --bs-light-text-emphasis: #99a5b1;
+  --bs-dark-text-emphasis: #53616e;
+  --bs-body-color: #99a5b1;
+  --bs-heading-color: #53616e;
+  --bs-font-family: Arial;
+
+  --bs-border-width: 1px;
+  --bs-border-style: solid;
+  --bs-border-color: var(--bs-dark-border-subtle);
+
+  --bs-border-radius: 12px !important;
+  --bs-box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+
+  --bs-animation-time: 0.3s;
+  --bs-body-font-size: 13px;
+}
+[data-bs-theme="dark"] {
+}
+[dir="rtl"] {
+  --bs-font-family: "fontfa" !important;
+}
+::-webkit-scrollbar {
+  width: 8px;
+  height: 5px;
+}
+::-webkit-scrollbar-thumb {
+  background-color: var(--bs-gray-500);
+  border-radius: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bs-gray-200);
+}
+
+.modal ::-webkit-scrollbar {
+  width: 1px;
+  height: 5px;
+}
+@media screen and (max-width: 1550px) {
+  .container,
+  .container-lg,
+  .container-md,
+  .container-sm,
+  .container-xl {
+    max-width: 1200px !important;
+  }
+}
+.container,
+.container-fluid {
+  width: -webkit-fill-available;
+  width: -moz-available;
+}
+
+html {
+  width: 100%;
+  overflow-x: hidden;
+}
+body {
+  margin: 0px;
+  padding: 0px;
+  font-family: var(--bs-font-family);
+  color: var(--bs-body-color) !important;
+  font-size: var(--bs-body-font-size);
+  overflow-x: hidden;
+}
+a {
+  text-decoration: none !important;
+  color: var(--bs-body-color) !important;
+}
+
+p {
+  font-family: var(--bs-font-family) !important;
+  font-weight: 400;
+}
+.rtl p,
+.rtl input {
+  font-family: "fontfa" !important;
+}
+h1,
+.h1,
+h2,
+.h2,
+h3,
+.h3,
+h4,
+.h4,
+h5,
+.h5,
+h6,
+.h6 {
+  font-weight: 700;
+  font-family: var(--bs-font-family) !important;
+  color: var(--bs-dark-text-emphasis);
+}
+.rtl {
+  direction: rtl;
+  font-family: "fontfa";
+}
+.rtl h1,
+.rtl .h1,
+.rtl h2,
+.rtl .h2,
+.rtl h3,
+.rtl .h3,
+.rtl h4,
+.rtl .h4,
+.rtl h5,
+.rtl .h5,
+.rtl h6,
+.rtl .h6 {
+  font-family: "fontfa" !important;
+}
+.icon svg,
+img {
+  max-width: 100% !important;
+  max-height: 100% !important;
+}
+.icon svg {
+  width: 100% !important;
+  height: 100% !important;
+}
+:focus-visible {
+  outline: -webkit-focus-ring-color auto 0px;
+}

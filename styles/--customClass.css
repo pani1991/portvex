@@ -1,0 +1,84 @@
+/* custom class */
+.main {
+  background: var(--bs-tertiary-bg);
+  min-height: 100vh;
+}
+.text-center img {
+  margin-inline: auto;
+}
+/* .fild {
+  position: relative;
+  line-height: 42px;
+  font-size: 0.875em;
+  margin-top: 6px;
+}
+.fild label {
+  top: -10px;
+  display: block;
+  font-size: 0.8em;
+  color: var(--bs-body-color);
+  line-height: normal;
+  position: absolute;
+  background: var(--bs-body-bg);
+  margin-inline-start: 9px;
+  padding: 0px 5px;
+}
+.fild input[type="text"],
+.fild input[type="password"],.fild select ,.fild textarea{
+  line-height: 42px;
+  font-size: 0.875em;
+  border-radius: var(--bs-border-radius);
+  width: -webkit-fill-available;width: -moz-available;
+  border: 1px solid var(--bs-body-color) !important;
+  padding-inline: 5px;
+  background: transparent;
+}
+.fild.danger input[type="text"],
+.fild.danger input[type="password"] ,select.danger {
+  border: 1px solid var(--color6) !important;
+}
+.fild.danger label {
+  color: var(--color6) !important;
+}
+.fild.danger .error {
+  font-size: 0.8em;
+  color: var(--color6) !important;
+  font-weight: 600; 
+}*/
+.modale {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  background: #0000009c;
+  width: 100%;
+  height: 100vh;
+  z-index: 100;
+  opacity: 1;
+  display: block;
+  padding: 20px;
+}
+.modale .box {
+  box-shadow: var(--bs-box-shadow);
+  border-radius: var(--bs-border-radius);
+  background: var(--bs-body-bg);
+  height: calc(100vh - 40px);
+  overflow: hidden;
+}
+.modale .box .head {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--bs-border-color);
+}
+.modale .box .head svg {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+.modale .box .body {
+  overflow-y: auto;
+  height: calc(100% - 60px);
+}
+/* .transition{
+  transition: all 0.3s;
+} */
+/* ======================================================================= */
